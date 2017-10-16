@@ -266,7 +266,7 @@ public class GraphViz
      gV.addln(gV.start_graph());
      gV.addln("A->B");
      gV.addln(gV.end_graph());
-     File to = new File("C:\\Users\\17274\\Pictures\\371.jpg");
+     File to = new File("C:17274\\Pictures\\371.jpg");
      gV.writeGraphToFile(gV.getGraph(gV.getDotSource(), "jpg"), to);
 
  }

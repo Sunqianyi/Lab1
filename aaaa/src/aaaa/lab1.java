@@ -20,7 +20,7 @@ import java.lang.*;
 public class lab1 {
     private int j;
     private int index;//this.index表示顶点数
-    private int[][] matrix;//this.matrix表示邻接矩阵
+    private int[][] matrix;
     private String[] vexs;//顶点
     private String[][] edges;//边表
     private String[] word;//句子
