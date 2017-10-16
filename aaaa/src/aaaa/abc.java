@@ -93,7 +93,7 @@ public class abc {
         	}	
         });
         
-        //根据桥接词生成文本
+        
         bu4.addActionListener(new ActionListener(){ 
         	public void actionPerformed(ActionEvent e) {
         		System.out.println("请输入文本：");

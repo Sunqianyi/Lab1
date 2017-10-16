@@ -57,7 +57,7 @@ public class lab1 {
                 read.close();
                 
             }else{
-                System.out.println("找不到指定的文件");
+                System.out.println("文件");
               
             }
         } catch (Exception e) {
