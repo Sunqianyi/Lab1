@@ -35,7 +35,7 @@ public class lab1 {
             File file=new File(filePath);
             if(file.isFile() && file.exists()){ //判断文件是否存在
                 InputStreamReader read = new InputStreamReader(
-                        new FileInputStream(file),encoding);//考虑到编码格式
+                        new FileInputStream(file),encoding);
                 BufferedReader bufferedReader = new BufferedReader(read);
                 String lineTxt = null;
  
