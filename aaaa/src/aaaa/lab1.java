@@ -19,8 +19,8 @@ import java.lang.*;
 
 public class lab1 {
     private int j;
-    private int index;//this.index表示顶点数
-    private int[][] matrix;
+    private int index;
+    private int[][] matrix;//this.matrix表示邻接矩阵
     private String[] vexs;//顶点
     private String[][] edges;//边表
     private String[] word;//句子
@@ -57,7 +57,7 @@ public class lab1 {
                 read.close();
                 
             }else{
-                System.out.println("找不到指定的文件");
+                System.out.println("文件");
               
             }
         } catch (Exception e) {

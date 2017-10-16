@@ -40,8 +40,8 @@ public class abc {
         Button bu1 = new Button("1.生成有向图");
         Button bu2 = new Button("2.展示有向图");
         Button bu3 = new Button("3.查询桥接词");
-        Button bu4 = new Button("4.产生新文本");
-        Button bu5 = new Button("5.计算两单词间最短路径");
+        Button bu4 = new Button("4.根据桥接词产生新文本");
+        Button bu5 = new Button("5.路径");
         Button bu6 = new Button("6.随机游走");
         f.add(bu1);
         f.add(bu2);
@@ -93,7 +93,7 @@ public class abc {
         	}	
         });
         
-        //根据桥接词生成文本
+        
         bu4.addActionListener(new ActionListener(){ 
         	public void actionPerformed(ActionEvent e) {
         		System.out.println("请输入文本：");
