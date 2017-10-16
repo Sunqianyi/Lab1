@@ -84,7 +84,7 @@ public class abc {
         		Scanner in = new Scanner(System.in);
                 System.out.println("请输入第一个单词：");
                 String word1 = in.nextLine();
-                System.out.println("请输入第二个单词：");
+                System.out.println("：");
                 String word2 = in.nextLine();             
 //                System.out.println(word1);
 //                System.out.println(word2);
