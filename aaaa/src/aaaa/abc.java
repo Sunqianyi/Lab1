@@ -1,48 +1,30 @@
 package aaaa;
-
-
 import java.awt.Button;
-import java.awt.Desktop.Action;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.Random;
 import java.util.Scanner;
+public class abc {//GUI
 
 
-
-import javax.xml.bind.Marshaller.Listener;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-
-
-
-public class abc {
-	
-	 
     public static void main(String[] args) {
-        
-        Frame f = new Frame("lab1");//½¨Á¢¿ò¼Ü
-        String[] WORD=new String[9999];//¾ä×Ó
+
+        Frame f = new Frame("lab1");//å»ºç«‹æ¡†æ¶
+        String[] WORD=new String[9999];//å¥å­
         f.setBounds(500, 300, 400, 600);
-        
+
         f.setLayout(new FlowLayout());
         f.setLayout(null);
-        //Ìí¼Ó°´Å¥
-        Button bu1 = new Button("1.Éú³ÉÓĞÏòÍ¼");
-        Button bu2 = new Button("2.Õ¹Ê¾ÓĞÏòÍ¼");
-        Button bu3 = new Button("3.²éÑ¯ÇÅ½Ó´Ê");
-        Button bu4 = new Button("4.¸ù¾İÇÅ½Ó´Ê²úÉúĞÂÎÄ±¾");
-        Button bu5 = new Button("5.¼ÆËãÁ½µ¥´Ê¼ä×î¶ÌÂ·¾¶");
-        Button bu6 = new Button("6.Ëæ»úÓÎ×ß");
+        //æ·»åŠ æŒ‰é’®
+        Button bu1 = new Button("1.ç”Ÿæˆæœ‰å‘å›¾");
+        Button bu2 = new Button("2.å±•ç¤ºæœ‰å‘å›¾");
+        Button bu3 = new Button("3.æŸ¥è¯¢æ¡¥æ¥è¯");
+        Button bu4 = new Button("4.æ ¹æ®æ¡¥æ¥è¯äº§ç”Ÿæ–°æ–‡æœ¬");
+        Button bu5 = new Button("5.è®¡ç®—ä¸¤å•è¯é—´æœ€çŸ­è·¯å¾„");
+        Button bu6 = new Button("6.éšæœºæ¸¸èµ°");
         f.add(bu1);
         f.add(bu2);
         f.add(bu3);
@@ -61,83 +43,83 @@ public class abc {
         bu5.setLocation(120, 330);
         bu6.setSize(150, 50);
         bu6.setLocation(120, 400);
-        String filePath = "C:\\Users\\hasee\\Desktop\\test1.txt";
-	    lab1 Lab1 = new lab1();
-	    
-	  
-        bu1.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
-        	    Lab1.readTxtFile(filePath, WORD);
-        	}	
-        });
-        //Õ¹Ê¾ÓĞÏòÍ¼
-        bu2.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
-        		Lab1.showDirectedGraph(filePath);   	   
-        	}	
-        });
-        
-        
-        //²éÑ¯ÇÅ½Ó´Ê
-        bu3.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
-        		Scanner in = new Scanner(System.in);
-                System.out.println("ÇëÊäÈëµÚÒ»¸öµ¥´Ê£º");
-                String word1 = in.nextLine();
-                System.out.println("ÇëÊäÈëµÚ¶ş¸öµ¥´Ê£º");
-                String word2 = in.nextLine();             
-//                System.out.println(word1);
-//                System.out.println(word2);
-//                System.out.println(Lab1.generateNewText(word1)); 
-                System.out.println(Lab1.queryBridgeWords (word1, word2));
-        	}	
-        });
-        
-        //¸ù¾İÇÅ½Ó´ÊÉú³ÉÎÄ±¾
-        bu4.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
-        		System.out.println("ÇëÊäÈëÎÄ±¾£º");
-        		Scanner in = new Scanner(System.in);
-        		String word1 = in.nextLine();
-        		System.out.println(Lab1.generateNewText(word1));  	   
-        	}	
-        });
-        
-        //¼ÆËã×î¶ÌÂ·¾¶
-        bu5.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
-        		Scanner in = new Scanner(System.in);
-                System.out.println("ÇëÊäÈëµÚÒ»¸öµ¥´Ê×÷ÎªÆğµã£º");
-                String word1 = in.nextLine();
-                System.out.println("");
-                System.out.println("ÇëÊäÈëµÚ¶ş¸öµ¥´Ê×÷ÎªÖÕµã£º");
-                String word2 = in.nextLine();             
-//                System.out.println(word1);
-//                System.out.println(word2);
-//                System.out.println(Lab1.generateNewText(word1)); 
-                Lab1.calcShortestPath (word1, word2);
-        	}	
-        });
-        
-        //Ëæ»úÓÎ×ß
-        bu6.addActionListener(new ActionListener(){ 
-        	public void actionPerformed(ActionEvent e) {
+        String filePath = "F:\\Lab1-T3.txt";
+        lab1 Lab1 = new lab1();
 
-        		System.out.println(Lab1.randomWalk());  	   
-        	}	
+        //ç”Ÿæˆæœ‰å‘å›¾
+        bu1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                Lab1.readTxtFile(filePath, WORD);
+            }
         });
-        
-        f.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);//ÍË³öJVM
+        //å±•ç¤ºæœ‰å‘å›¾
+        bu2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                Lab1.showDirectedGraph(filePath);
             }
         });
 
 
-        // ´°ÌåÏÔÊ¾
+        //æŸ¥è¯¢æ¡¥æ¥è¯
+        bu3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                Scanner in = new Scanner(System.in);
+                System.out.println("è¯·è¾“å…¥ç¬¬ä¸€ä¸ªå•è¯ï¼š");
+                String word1 = in.nextLine();
+                System.out.println("è¯·è¾“å…¥ç¬¬äºŒä¸ªå•è¯ï¼š");
+                String word2 = in.nextLine();
+//                System.out.println(word1);
+//                System.out.println(word2);
+//                System.out.println(Lab1.generateNewText(word1));
+                System.out.println(Lab1.queryBridgeWords (word1, word2));
+            }
+        });
+
+        //æ ¹æ®æ¡¥æ¥è¯ç”Ÿæˆæ–‡æœ¬
+        bu4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("è¯·è¾“å…¥æ–‡æœ¬ï¼š");
+                Scanner in = new Scanner(System.in);
+                String word1 = in.nextLine();
+                System.out.println(Lab1.generateNewText(word1));
+            }
+        });
+
+        //è®¡ç®—æœ€çŸ­è·¯å¾„
+        bu5.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                Scanner in = new Scanner(System.in);
+                System.out.println("è¯·è¾“å…¥ç¬¬ä¸€ä¸ªå•è¯ä½œä¸ºèµ·ç‚¹ï¼š");
+                String word1 = in.nextLine();
+                System.out.println("");
+                System.out.println("è¯·è¾“å…¥ç¬¬äºŒä¸ªå•è¯ä½œä¸ºç»ˆç‚¹ï¼š");
+                String word2 = in.nextLine();
+//                System.out.println(word1);
+//                System.out.println(word2);
+//                System.out.println(Lab1.generateNewText(word1));
+                Lab1.calcShortestPath (word1, word2);
+            }
+        });
+
+        //éšæœºæ¸¸èµ°
+        bu6.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println(Lab1.randomWalk());
+            }
+        });
+
+        f.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);//é€€å‡ºJVM
+            }
+        });
+
+
+        // çª—ä½“æ˜¾ç¤º
         f.setVisible(true);
-        
+
     }
 
-}
+}}

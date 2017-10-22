@@ -1,48 +1,38 @@
 package aaaa;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Random;
-
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.*;
-import java.util.List;
 import java.lang.*;
 
-public class lab1 {
-    private int j;
-    private int index;//this.index±íÊ¾¶¥µãÊı
-    private int[][] matrix;//this.matrix±íÊ¾ÁÚ½Ó¾ØÕó
-    private String[] vexs;//¶¥µã
-    private String[][] edges;//±ß±í
-    private String[] word;//¾ä×Ó
+public class lab1 { //å†…éƒ¨é€»è¾‘
+    private int j; //this.jè¡¨ç¤ºå­˜å…¥æ•°ç»„ä¸­çš„å•è¯æ•°
+    private int index; //this.indexè¡¨ç¤ºé¡¶ç‚¹æ•°
+    private int[][] matrix; //this.matrixè¡¨ç¤ºé‚»æ¥çŸ©é˜µ
+    private String[] vexs; //é¡¶ç‚¹
+    private String[][] edges; //è¾¹è¡¨
+    private String[] word; //å¥å­
     private int[] prev;
-    
+
     void readTxtFile(String filePath,String[] word){
-    	
+
         try {
             this.j =0;
             int num = 0;
             String encoding="GBK";
             File file=new File(filePath);
-            if(file.isFile() && file.exists()){ //ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ
+            if(file.isFile() && file.exists()){ //åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨
                 InputStreamReader read = new InputStreamReader(
-                        new FileInputStream(file),encoding);//¿¼ÂÇµ½±àÂë¸ñÊ½
+                        new FileInputStream(file),encoding);//è€ƒè™‘åˆ°ç¼–ç æ ¼å¼
                 BufferedReader bufferedReader = new BufferedReader(read);
                 String lineTxt = null;
- 
-                while((lineTxt = bufferedReader.readLine()) != null){	
-                	if(lineTxt.isEmpty()) {
-                		continue;
-                	}
+
+                while((lineTxt = bufferedReader.readLine()) != null){
+                    if(lineTxt.isEmpty()) {
+                        continue;
+                    }
                     String line = lineTxt;
                     line = line.replaceFirst("[^a-zA-Z]*", "");
                     String[] words = line.split("[^a-zA-Z]+");
@@ -50,20 +40,20 @@ public class lab1 {
                         words[i]= words[i].toLowerCase();
                         word[this.j] = words[i];
                         this.j++;
-//                        System.out.println(words[i].toLowerCase());                  
-                	}
+//                        System.out.println(words[i].toLowerCase());
+                    }
                     num++;
                 }
                 read.close();
-                
+
             }else{
-                System.out.println("ÕÒ²»µ½Ö¸¶¨µÄÎÄ¼ş");
-              
+                System.out.println("æ‰¾ä¸åˆ°æŒ‡å®šçš„æ–‡ä»¶");
+
             }
         } catch (Exception e) {
-            System.out.println("¶ÁÈ¡ÎÄ¼şÄÚÈİ³ö´í");
+            System.out.println("è¯»å–æ–‡ä»¶å†…å®¹å‡ºé”™");
             e.printStackTrace();
-            
+
         }
     }
 
@@ -74,13 +64,13 @@ public class lab1 {
         readTxtFile(filePath,this.word);
         this.vexs = new String[this.j];
         this.edges = new String[2][this.j-1];
-        this.index = 1;//index±íÊ¾¶¥µã¸öÊı
+        this.index = 1;//indexè¡¨ç¤ºé¡¶ç‚¹ä¸ªæ•°
         this.vexs[0] = this.word[0];
         for (int i = 1;i<this.j;i++){
             boolean flag = false;
             String temp = this.word[i];
             for (int j = 0;j<this.index;j++) {
-                 if (this.vexs[j].equals(temp)) {
+                if (this.vexs[j].equals(temp)) {
                     flag = true;
                     break;
                 }
@@ -91,7 +81,7 @@ public class lab1 {
             }
         }
         for (int k = 0;k<(this.j-1);k++){
-            //this.j-1±íÊ¾±ßÊı
+            //this.j-1è¡¨ç¤ºè¾¹æ•°
             this.edges[0][k] = this.word[k];
             this.edges[1][k] = this.word[k+1];
         }
@@ -121,33 +111,25 @@ public class lab1 {
             }
         }
         gv.addln(gv.end_graph());
-//        for (int i = 0;i<this.index;i++){
-//            System.out.println(vexs[i]);
-//        }
-//        for (int i = 0;i<(this.j-1);i++){
-//            System.out.println(edges[0][i] + " " + edges[1][i]);
-//        }
-       
         String type = "jpg";
-      
-        File out = new File("C:\\pic\\lab1."+ type); 
+        File out = new File("F:\\lab1."+ type);
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
-        
+
         try {
-        	openFile("C:\\pic\\lab1.jpg");
+            openFile("F:\\lab1.jpg");
         }catch(IOException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         }
-       
+
     }
-    
+
 
 
     int getPosition (String str){
-          for (int i = 0;i<this.index;i++){
-              if (this.vexs[i].equals(str)) return i;
-          }
-          return -1;
+        for (int i = 0;i<this.index;i++){
+            if (this.vexs[i].equals(str)) return i;
+        }
+        return -1;
     }
 
 
@@ -320,43 +302,22 @@ public class lab1 {
         }
         StringBuilder outputwords = new StringBuilder();
         if (flag2 == true) {
-        	for (int i = 0; i<n+1;i++){
+            for (int i = 0; i<n+1;i++){
                 outputwords.append(path[i]+" ");
             }
         }
         else {
-        	for (int i = 0; i<n;i++){
-            outputwords.append(path[i]+" ");
-        	}
+            for (int i = 0; i<n;i++){
+                outputwords.append(path[i]+" ");
+            }
         }
-        
-//        outputwords.append(randomword);
         return outputwords.toString();
     }
-
-//    public  lab1(){
-    	
-//    	String filePath = "C:\\Users\\hasee\\Desktop\\test1.txt";
-////    	String filePath = new String();
-//        showDirectedGraph(filePath);
-//        int h = getPosition("have");
-//        System.out.println(h);
-//        Scanner s1 = new Scanner(System.in);
-//        String word1 = s1.nextLine();
-//        Scanner s2 = new Scanner(System.in);
-//        String word2 = s2.nextLine();
-//////        System.out.println(word1);
-//////        System.out.println(word2);
-//////        System.out.println(generateNewText(word1));
-//        System.out.println(calcShortestPath(word1, word2));
-////        System.out.println(randomWalk());
-////
-//    }
     public void openFile(String path) throws IOException{
-    	Runtime.getRuntime().exec("cmd /c Start " + path);
+        Runtime.getRuntime().exec("cmd /c Start " + path);
     }
-    
+
     public static void main(String[] args){
         lab1 m = new lab1();
     }
-}
+}}
